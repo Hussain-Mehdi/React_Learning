@@ -1,7 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import ExpenseItem from "./components/ExpenseItem";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
 import { useState } from "react";
+import Expenses from "./components/Expenses/Expenses";
 
 function App() {
   const expense = [
@@ -16,14 +17,8 @@ function App() {
 
   return (
     <div>
-
-     <ExpenseItem
-        title={expense[0].title}
-        amount={expense[0].amount}
-        date={expense[0].date}
-      ></ExpenseItem>
-      
-
+      <h2>Let's get started!</h2>
+      <Expenses item={expense} />
     </div>
   );
 }
