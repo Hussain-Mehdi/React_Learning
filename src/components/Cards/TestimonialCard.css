@@ -1,0 +1,71 @@
+.testimonial-card__keyconcepts{
+  color: white;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  height: min-content;
+  padding: 10px;
+}
+
+.testimonial-card__keyconcepts h2{
+  margin: 0; 
+  padding: 0;
+}
+
+.testimonial-card__keyconcepts p{
+  margin: 0; 
+  padding: 0;
+}
+
+.testimonial-card__keyconcepts img{
+  height: 80px;
+  padding: 0;
+  margin: 0;
+}
+
+.testimonial-card {
+  margin: 0.7rem;
+  padding: 0.5rem;
+  background-image: linear-gradient(to bottom, #1d0035, #591194);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s all ease;
+  border-radius: 5px;
+  box-shadow: 2px 4px 10px rgba(156, 38, 253, 2.25);
+
+}
+
+.testimonial-card:hover{
+  box-shadow: 2px 4px 10px rgba(156, 38, 253, 2.25);
+  transition: 1s all ease;
+  transform: scale(1.02); 
+}
+
+.testimonial-card__image img {
+  height: 100px;
+  padding: 0;
+  margin: 0;
+}
+
+.testimonial-card__content {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.testimonial-card__content h2 {
+  padding: 0;
+  font-family:"Roboto Condensed", sans-serif;
+  margin: 0;
+
+}
+
+.testimonial-card__content p {
+  padding: 0;
+  font-family:"Roboto Condensed", sans-serif;
+}

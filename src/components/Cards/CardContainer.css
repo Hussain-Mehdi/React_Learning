@@ -1,0 +1,6 @@
+.card-container{
+    display: flex;
+    width: 60rem; 
+    max-width: 95%;
+    margin-top: 2rem;
+}

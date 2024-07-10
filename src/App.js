@@ -3,6 +3,7 @@ import "./App.css";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
+import CardContainer from "./components/Cards/CardContainer";
 
 function App() {
   const expense = [
@@ -15,10 +16,15 @@ function App() {
     { title: "Rental Insurance", amount: 894.23, date: new Date(2024, 2, 22) },
   ];
 
+ 
+  
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <Expenses item={expense} />
+      {/* <h2>Let's get started!</h2>
+      <Expenses item={expense} /> */}
+      
+        <CardContainer/>
+      
     </div>
   );
 }
