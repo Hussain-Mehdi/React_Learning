@@ -20,10 +20,10 @@ function App() {
   
   return (
     <div>
-      {/* <h2>Let's get started!</h2>
-      <Expenses item={expense} /> */}
+      <h2>Let's get started!</h2>
+      <Expenses item={expense} />
       
-        <CardContainer/>
+        {/* <CardContainer/> */}
       
     </div>
   );
