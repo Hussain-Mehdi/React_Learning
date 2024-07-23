@@ -5,6 +5,8 @@ import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import CardContainer from "./components/Cards/CardContainer";
 import NewExpense from "./components/New Expense/NewExpense";
+import CourseGoalList from './component/CourseGoals/CourseGoalList/CourseGoalList'
+import CourseInput from './component/CourseGoals/CourseInput/CourseInput'
 
 const DUMMY_EXPENSES = [
   { title: "Car Insurance", amount: 294.23, date: new Date(2019, 2, 28) },
@@ -21,21 +23,69 @@ const DUMMY_EXPENSES = [
 ];
 
 function App() {
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  // const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  const addExpenseHandler = (expense) => {
-    setExpenses((preExpense) => {
-      return [expense, ...preExpense];
+  // const addExpenseHandler = (expense) => {
+  //   setExpenses((preExpense) => {
+  //     return [expense, ...preExpense];
+  //   });
+  // };
+
+  // return (
+  //   <div>
+  //     {/* <h2>Let's get started!</h2>
+  //     <NewExpense onAddExpense={addExpenseHandler} />
+  //     <Expenses item={expenses} /> */}
+      
+  //     {/* <CardContainer/> */}
+  //   </div>
+  // );
+
+  const [courseGoals, setCourseGoals] = useState([
+    { text: 'Do all exercises!', id: 'g1' },
+    { text: 'Finish the course!', id: 'g2' }
+  ]);
+
+  const addGoalHandler = enteredText => {
+    setCourseGoals(prevGoals => {
+      const updatedGoals = [...prevGoals];
+      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
+      return updatedGoals;
     });
   };
 
+  const deleteItemHandler = goalId => {
+    setCourseGoals(prevGoals => {
+      const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
+      return updatedGoals;
+    });
+  };
+
+  let content = (
+    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+  );
+
+  if (courseGoals.length > 0) {
+    content = (
+      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
+    );
+  }
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses item={expenses} />
-
-      {/* <CardContainer/> */}
+      <section id="goal-form">
+        <CourseInput onAddGoal={addGoalHandler} />
+      </section>
+      <section id="goals">
+        {content}
+        {/* {courseGoals.length > 0 && (
+          <CourseGoalList
+            items={courseGoals}
+            onDeleteItem={deleteItemHandler}
+          />
+        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+        } */}
+      </section>
     </div>
   );
 }
