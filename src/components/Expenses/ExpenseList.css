@@ -1,0 +1,9 @@
+.expenseList-filter__message {
+  color: white;
+  text-align: center;
+}
+
+.expenseList__list {
+  list-style: none;
+  padding: 0;
+}

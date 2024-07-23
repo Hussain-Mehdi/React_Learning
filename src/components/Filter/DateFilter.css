@@ -1,0 +1,14 @@
+.datefilter__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#datefilter__heading {
+  color: white;
+}
+
+.datefilter__dropdown select {
+  height: 50px;
+  width: 100px;
+}

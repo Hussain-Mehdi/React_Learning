@@ -1,0 +1,19 @@
+.chart-bar {
+  height: 100%;
+  width: 30px;
+  background-color: #ad9cee;
+  border-radius: 20px;
+}
+.chart-bar__inner {
+  height: 100%;
+  width: 30px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.chart-bar__fill {
+  background-color: #2c14a0;
+  height: 100%;
+  width: 30px;
+  border-radius: 20px;
+}
