@@ -1,0 +1,39 @@
+.userList-container {
+  background-color: #ececec;
+  width: 50%;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.list-item {
+  border: 0.3px solid #ccc;
+  border-radius: 5px;
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
+
+.list-item p {
+  padding: 3px;
+  margin: 0;
+}
+
+.list-delete__icon {
+  margin: 5px;
+  border: 0.2px solid #ccc;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.list-delete__icon:hover {
+    border: 0.5px solid #a5a5a5;
+}
+
+.list-delete__icon button{
+    background-color: transparent; 
+    border: none; 
+    outline: none;
+}

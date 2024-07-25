@@ -1,0 +1,18 @@
+.input-control{
+    display: flex;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.input-control input{
+    flex-grow: 1;
+    border: none; 
+    background-color: transparent;
+    outline: none;
+}
+
+.group-input label{
+    font-size: 12px;
+    font-weight: 600;
+}
