@@ -37,3 +37,17 @@
     border: none; 
     outline: none;
 }
+
+@media screen and (min-width: 100px) {
+
+  .userList-container {
+    background-color: #ececec;
+    width: 70%;
+    
+    margin: auto;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+
+}

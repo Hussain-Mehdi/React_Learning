@@ -2,49 +2,56 @@ import React, { useState } from "react";
 import UserInput from "../UserInput/UserInput";
 import "./InputForm.css";
 import FormButton from "./FormButton";
+import { useRef } from "react";
 
 export default function InputForm(props) {
-  const [usernameInput, setUsernameInput] = useState('');
-  const [ageInput, setAgeInput] = useState('');
-
-  const usernameInputHandler = (value) => {
-    setUsernameInput(value);
-  };
-
-  const ageInputHandler = (value) => {
-    setAgeInput(value);
-  };
+  const userNameInput = useRef();
+  const userAgeInput = useRef();
 
   const userSubmissionHandler = (event) => {
-    if (usernameInput.trim().length > 0 || ageInput.trim().length > 0) {
-      event.preventDefault();
+    event.preventDefault();
+    if (userNameInput.current.value.trim().length > 0 || userAgeInput.current.value.trim().length > 0) {
+      
+      const nameInput = userNameInput.current.value;
+      const ageInput = userAgeInput.current.value;
       props.onSubmission({
-        username: usernameInput,
+        username: nameInput,
         age: ageInput,
       });
+     
     }
-   
-    setUsernameInput('');
-    setAgeInput('');
-  
 
+    userNameInput.current.value = "";
+    userAgeInput.current.value = "";
+    
   };
 
   return (
     <div className="form-container">
       <form action="" onSubmit={userSubmissionHandler}>
-        <UserInput
+        {/* <UserInput
           name="Username"
           id="userName-Input"
-          onChangeHandler={usernameInputHandler}
-          value={usernameInput}
+          refer={userNameInput}
         />
         <UserInput
           name="Age"
           id="userAge-Input"
-          onChangeHandler={ageInputHandler}
-          value={ageInput}
-        />
+          refer={userAgeInput}
+        /> */}
+
+        <div className="group-input">
+          <label htmlFor="">Username</label>
+          <div className="input-control">
+            <input type="text" ref={userNameInput} />
+          </div>
+        </div>
+        <div className="group-input">
+          <label htmlFor="">Age</label>
+          <div className="input-control">
+            <input type="text" ref={userAgeInput} />
+          </div>
+        </div>
         <FormButton />
       </form>
     </div>
