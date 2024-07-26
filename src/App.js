@@ -1,23 +1,27 @@
 // import logo from "./logo.svg";
 import "./App.css";
 // import ExpenseItem from "./components/Expenses/ExpenseItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import React from 'react'
 // import Expenses from "./components/Expenses/Expenses";
 // import CardContainer from "./components/Cards/CardContainer";
 // import NewExpense from "./components/New Expense/NewExpense";
 // import CourseGoalList from "./component/CourseGoals/CourseGoalList/CourseGoalList";
 // import CourseInput from "./component/CourseGoals/CourseInput/CourseInput";
-import Header from "./First Practice Project/Header/Header";
+// import Header from "./First Practice Project/Header/Header";
 // import InputGroup from "./First Practice Project/InputGroup/InputGroup";
 // import Card from "./components/UI/Card";
 // import Button from "./First Practice Project/Button/Button";
 // import ButtonGroup from "./First Practice Project/Button/ButtonGroup";
-import Table from "./First Practice Project/Table/Table";
-import InputForm from "./Second Practice Project/InputForm/InputForm";
-import UserInput from "./Second Practice Project/UserInput/UserInput";
-import UserList from "./Second Practice Project/UserList/UserList";
-import ErrorModal from "./Second Practice Project/UI/ErrorModal";
-import CircularAvatar from "./Second Practice Project/UI/CircularAvatar";
+// import Table from "./First Practice Project/Table/Table";
+// import InputForm from "./Second Practice Project/InputForm/InputForm";
+// import UserInput from "./Second Practice Project/UserInput/UserInput";
+// import UserList from "./Second Practice Project/UserList/UserList";
+// import ErrorModal from "./Second Practice Project/UI/ErrorModal";
+// import CircularAvatar from "./Second Practice Project/UI/CircularAvatar";
+import MainHeader from './Side_Effect_Reference_Context_API/MainHeader/MainHeader' 
+import Login from './Side_Effect_Reference_Context_API/Login/Login' 
+import Home from './Side_Effect_Reference_Context_API/Home/Home'
 
 // const DUMMY_EXPENSES = [
 //   { title: "Car Insurance", amount: 294.23, date: new Date(2019, 2, 28) },
@@ -32,7 +36,7 @@ import CircularAvatar from "./Second Practice Project/UI/CircularAvatar";
 //   { title: "Pet Insurance", amount: 794.23, date: new Date(2024, 10, 23) },
 //   { title: "Rental Insurance", amount: 894.23, date: new Date(2024, 12, 22) },
 // ];
-const userDataList = [];
+// const userDataList = [];
 function App() {
   // const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
@@ -140,37 +144,68 @@ function App() {
   //     </div>
   //   );
 
-  const [userList, setUserList] = useState(userDataList);
-  const[showModal,setShowModal] = useState(false);
+  // const [userList, setUserList] = useState(userDataList);
+  // const[showModal,setShowModal] = useState(false);
 
-  const showErrorModalHandler=(value)=>{
-    setShowModal(value)
-  }
+  // const showErrorModalHandler=(value)=>{
+  //   setShowModal(value)
+  // }
 
-  const userSubmissionHandler = (value) => {
-    const userListObj={
-      ...value, 
-      key:Math.random().toLocaleString()
+  // const userSubmissionHandler = (value) => {
+  //   const userListObj={
+  //     ...value, 
+  //     key:Math.random().toLocaleString()
+  //   }
+  //   setUserList([...userList,userListObj]);
+  //   console.log(userListObj);
+  //   setShowModal(true)
+  // };
+
+  // const deleteItemHandler=(key)=>{
+  //   setUserList((prevState)=>{
+  //     const updateUserItem=prevState.filter(item=>item.key!==key);
+  //     return updateUserItem;
+  //   })
+  // }
+
+  // return (
+  //   <div className="App">
+  //     {showModal&&<ErrorModal onModelClose={showErrorModalHandler}/>}
+  //     <InputForm onSubmission={userSubmissionHandler} />
+  //     {userList.length>0?<UserList userData={userList} deleteHandler={deleteItemHandler}/>:<p></p>}
+  //   <CircularAvatar/>
+  //   </div>
+  // );
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(()=>{
+    if(localStorage.getItem("isLoggedIn")==='1')
+    {
+      setIsLoggedIn(true);
     }
-    setUserList([...userList,userListObj]);
-    console.log(userListObj);
-    setShowModal(true)
+  },[])
+
+  const loginHandler = (email, password) => {
+    // We should of course check email and password
+    // But it's just a dummy/ demo anyways
+    setIsLoggedIn(true);
+    localStorage.setItem("isLoggedIn","1");
   };
 
-  const deleteItemHandler=(key)=>{
-    setUserList((prevState)=>{
-      const updateUserItem=prevState.filter(item=>item.key!==key);
-      return updateUserItem;
-    })
-  }
+  const logoutHandler = () => {
+    localStorage.removeItem('isLoggedIn')
+    setIsLoggedIn(false);
+  };
 
   return (
-    <div className="App">
-      {showModal&&<ErrorModal onModelClose={showErrorModalHandler}/>}
-      <InputForm onSubmission={userSubmissionHandler} />
-      {userList.length>0?<UserList userData={userList} deleteHandler={deleteItemHandler}/>:<p></p>}
-    <CircularAvatar/>
-    </div>
+    <React.Fragment>
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
+      </main>
+    </React.Fragment>
   );
 }
 export default App;

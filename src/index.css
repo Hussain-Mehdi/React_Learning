@@ -16,3 +16,14 @@ body {
 
 
 
+
+html {
+  font-family: sans-serif;
+  background: #fff;
+}
+
+main {
+  margin-top: 6rem;
+}
+
+

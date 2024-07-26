@@ -48,7 +48,7 @@ const CircularImage = (props) => {
   };
 
   const hideDetailsOnTop = () => {
-    props.onMouseHover(true);
+    props.onMouseHover(false);
   };
 
   return (
