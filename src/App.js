@@ -22,6 +22,11 @@ import React from 'react'
 import MainHeader from './Side_Effect_Reference_Context_API/MainHeader/MainHeader' 
 import Login from './Side_Effect_Reference_Context_API/Login/Login' 
 import Home from './Side_Effect_Reference_Context_API/Home/Home'
+import DataFetching from "./useEffect Tasks/DataFetching";
+import MountUnMountComponent from "./useEffect Tasks/MountUnMountComponent";
+import CounterApp from "./useEffect Tasks/CounterApp";
+import CleanUpFucntion from "./useEffect Tasks/CleanUpFucntion";
+import ConditionalEffect from "./useEffect Tasks/ConditionalEffect";
 
 // const DUMMY_EXPENSES = [
 //   { title: "Car Insurance", amount: 294.23, date: new Date(2019, 2, 28) },
@@ -177,35 +182,45 @@ function App() {
   //   </div>
   // );
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(()=>{
-    if(localStorage.getItem("isLoggedIn")==='1')
-    {
-      setIsLoggedIn(true);
-    }
-  },[])
+  // useEffect(()=>{
+  //   if(localStorage.getItem("isLoggedIn")==='1')
+  //   {
+  //     setIsLoggedIn(true);
+  //   }
+  // },[])
 
-  const loginHandler = (email, password) => {
-    // We should of course check email and password
-    // But it's just a dummy/ demo anyways
-    setIsLoggedIn(true);
-    localStorage.setItem("isLoggedIn","1");
-  };
+  // const loginHandler = (email, password) => {
+  //   // We should of course check email and password
+  //   // But it's just a dummy/ demo anyways
+  //   setIsLoggedIn(true);
+  //   localStorage.setItem("isLoggedIn","1");
+  // };
 
-  const logoutHandler = () => {
-    localStorage.removeItem('isLoggedIn')
-    setIsLoggedIn(false);
-  };
+  // const logoutHandler = () => {
+  //   localStorage.removeItem('isLoggedIn')
+  //   setIsLoggedIn(false);
+  // };
 
-  return (
-    <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
-      <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
-      </main>
-    </React.Fragment>
+  // return (
+  //   <React.Fragment>
+  //     <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+  //     <main>
+  //       {!isLoggedIn && <Login onLogin={loginHandler} />}
+  //       {isLoggedIn && <Home onLogout={logoutHandler} />}
+  //     </main>
+  //   </React.Fragment>
+  // );
+
+  return(
+    <>
+    {/* <DataFetching/> */}
+    {/* <MountUnMountComponent/> */}
+    {/* <CounterApp/> */}
+    {/* <CleanUpFucntion/> */}
+    <ConditionalEffect/>
+    </>
   );
 }
 export default App;
