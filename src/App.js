@@ -27,6 +27,7 @@ import MountUnMountComponent from "./useEffect Tasks/MountUnMountComponent";
 import CounterApp from "./useEffect Tasks/CounterApp";
 import CleanUpFucntion from "./useEffect Tasks/CleanUpFucntion";
 import ConditionalEffect from "./useEffect Tasks/ConditionalEffect";
+import DependentDataFetching from "./useEffect Tasks/DependentDataFetching";
 
 // const DUMMY_EXPENSES = [
 //   { title: "Car Insurance", amount: 294.23, date: new Date(2019, 2, 28) },
@@ -219,7 +220,8 @@ function App() {
     {/* <MountUnMountComponent/> */}
     {/* <CounterApp/> */}
     {/* <CleanUpFucntion/> */}
-    <ConditionalEffect/>
+    {/* <ConditionalEffect/> */}
+    <DependentDataFetching/>
     </>
   );
 }

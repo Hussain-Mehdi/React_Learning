@@ -64,9 +64,26 @@ export default function ConditionalEffect() {
           }}
         />
       </div>
-      <div>
-        {apiList && <div>{JSON.stringify(apiList)}</div>}
-      </div>
+      <table>
+        <thead>
+          <tr style={{color:'black', fontWeight:'bold'}}>
+            <td>ID</td>
+            <td>UserID</td>
+            <td>Title</td>
+            <td>Body</td>
+          </tr>
+        </thead>
+        <tbody>
+          {apiList.map((e) => (
+            <tr key={e.id}>
+              <td>{e.id}</td>
+              <td>{e.userId}</td>
+              <td>{e.title}</td>
+              <td>{e.body}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
