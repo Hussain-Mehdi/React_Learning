@@ -17,12 +17,12 @@ const ToggleSwitchStyle = styled.div`
   }
 
   .toggle-button {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background-color: white;
     // {({ isToggle }) => (isToggle ? '#43aa8b' : '#FFFFFF')};
-    border-radius: 20px;
-    margin: 0 0 0 3px;
+    border-radius: 25px;
+    margin: 0 0 0 5px;
     box-shadow: 0 1px 2px 3px rgba(148, 148, 148, 0.171);
     transition: 0.3s all ease-in-out;
     transform: ${({ isToggle }) => (isToggle ? 'translateX(36px)' : 'translateX(0px)')};

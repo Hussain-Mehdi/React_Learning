@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import React from 'react'
 import CounterApp from "./useReducer Tasks/CounterApp";
 import ToggleSwitch from "./useReducer Tasks/ToggleSwitch";
+import SignUpForm from "./useReducer Tasks/SignUpForm";
 // import Expenses from "./components/Expenses/Expenses";
 // import CardContainer from "./components/Cards/CardContainer";
 // import NewExpense from "./components/New Expense/NewExpense";
@@ -228,6 +229,7 @@ function App() {
     {/* <WebSocketDemo/> */}                        
     {/* <CounterApp/> */}
     <ToggleSwitch/>                                                                 
+    {/* <SignUpForm/> */}
     </>
   );
 }
