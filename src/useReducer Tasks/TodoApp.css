@@ -1,0 +1,48 @@
+.todo-item__container{
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin: 10px auto;
+    align-content: space-between;
+    justify-content: center;
+    padding: 0 20px 0 20px;
+    height: min-content;
+
+}
+
+.todo-content{
+    padding: 0;
+    width: 50rem;
+    margin: 0 10px 0 10px;
+   
+}
+
+.fa{
+font-size: 30px;
+padding: 0;
+}
+.todo-completion__toggle{
+    margin-left: 50px;
+    width: 4.7rem;
+
+padding: 0;
+}
+
+.todo-container__card{
+    margin: 20px auto;
+    width: 40%;
+}
+
+.todo-user__input{
+border: 1px solid rgb(206, 206, 206);
+display: flex;
+flex-grow: 1;
+border-radius: 30px;
+}
+
+.todo-user__inputfield{
+    flex-grow: 1;
+    margin: 0 20px 0 10px;
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const ToggleSwitchStyle = styled.div`
-  width: 3%;
+  width: 100%;
   margin: 20px auto;
 
   .toggle-button__container {
