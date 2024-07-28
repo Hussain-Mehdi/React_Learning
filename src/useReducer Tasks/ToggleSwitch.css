@@ -1,0 +1,28 @@
+
+.card{
+    width: 3%;
+    margin: 20px auto;
+}
+.toggle-button__container{
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;   
+    display: flex; 
+    align-items: center;                                      
+}
+
+.toggle-button{
+    width: 35px; 
+    height: 35px; 
+    background-color: #175e97;
+    border-radius: 20px;
+    margin:0 0 0 3px;
+    box-shadow: 0 1px 2px 3px rgba(148, 148, 148, 0.171);
+    transition: 1s all ease-in-out;
+}
+
+.toggle-button:hover{                                                                                                               
+   transform: translate(36px);
+    transition: 1s all ease-out;
+}

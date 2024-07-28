@@ -1,0 +1,47 @@
+.quantity-card {
+  margin: 50px auto;
+  width: 10%;
+}
+
+.item-quantity__container {
+  border-radius: 25px;
+  border: 0.1px solid #ccccccc5;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.item-quantity__button {
+  flex-grow: 1;
+  background-color: transparent;
+  outline: none;
+  height: 50px;
+  border: none;
+  font-size: large;
+}
+
+.left-rounded__corner {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.right-rounded__corner {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.item-quantity {
+  margin: 0 3px 0 3px;
+  padding: 0;
+
+  text-align: center;
+}
+
+.item-quantity__button:hover {
+  background-color: #ccc;
+}
+
+.item-quantity__button:active {
+  transition: 0.2s all ease;
+  background-color: #aaaaaa;
+}

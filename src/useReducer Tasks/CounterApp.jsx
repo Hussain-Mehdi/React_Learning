@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import "./CounterApp.css";
 
 const counterHandler = (state, action) => {
   switch (action.type) {
@@ -27,20 +28,24 @@ export default function CounterApp() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <button
-        style={{ fontSize: "20px", width: "60px", margin: "10px" }}
-        onClick={decrementHandler}
-      >
-        -
-      </button>
-      <h3 style={{ fontSize: "20px" }}>{state.count}</h3>
-      <button
-        style={{ fontSize: "20px", width: "60px", margin: "10px" }}
-        onClick={incrementHandler}
-      >
-        +
-      </button>
+    <div className="quantity-card">
+      <div className="item-quantity__container">
+        <button
+          className="item-quantity__button right-rounded__corner ripple-button"
+          onClick={decrementHandler}
+        >
+          -
+        </button>
+        <div>
+          <h3 className="item-quantity">{state.count}</h3>
+        </div>
+        <button
+          className="item-quantity__button left-rounded__corner"
+          onClick={incrementHandler}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }
