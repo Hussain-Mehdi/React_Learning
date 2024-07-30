@@ -1,4 +1,6 @@
-
+.App{
+  background-color: #192025;
+}
 header {
   display: flex;
   margin-bottom: 15px;

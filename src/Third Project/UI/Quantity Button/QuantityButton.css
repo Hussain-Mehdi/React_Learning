@@ -1,0 +1,31 @@
+.amount-button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  .amount-button:hover {
+    border: 1px solid #802607;
+  }
+  .amount-button:active {
+      background-color:  #a8330c;
+      color: white;
+    }
+  
+  .amount-button button {
+    flex-grow: 1;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: max-content;
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  

@@ -1,0 +1,43 @@
+.slogan-container {
+  background-color: #303030;
+  height: 15rem;
+  width: 50rem;
+  border-radius: 20px;
+  margin: auto;
+  position: absolute;
+  top: 20rem;
+  left: 0;
+  right: 0;
+}
+
+.slogan-content {
+  padding: 1rem 5rem 5rem 3rem;
+  text-align: center;
+  color: white;
+}
+
+.slogan-content p {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .slogan-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 15rem;
+    width: 25rem;
+    border-radius: 20px;
+    margin: auto;
+    position: absolute;
+    top: 15rem;
+    left: 0;
+    right: 0;
+  }
+  .slogan-content {
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    text-align: center;
+    color: white;
+  }
+  .slogan-content p {
+    font-size: 15px;
+  }
+}

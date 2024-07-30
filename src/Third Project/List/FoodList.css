@@ -1,0 +1,14 @@
+.food-list__container{
+    background-color: white;
+    width: 70rem;
+    border-radius: 20px;
+    margin: 10rem auto;
+}
+
+@media screen and (max-width: 480px) {
+    .food-list__container{
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        width: 25rem;
+    }
+  }

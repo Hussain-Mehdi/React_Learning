@@ -1,0 +1,36 @@
+
+
+.backdrop{
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100vh; 
+    z-index: 10; 
+    background:rgba(0, 0, 0, 0.4);
+}
+
+.modal{
+    position: fixed; 
+    top: 30vh; 
+    left: 30%; 
+    width: 40%; 
+    z-index: 100; 
+    overflow: hidden;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.price-calculation{
+    margin: 0 25px 0 25px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout{
+display: flex; 
+justify-content: end;
+}
+
+

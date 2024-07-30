@@ -1,5 +1,11 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import "./Third Project/PriceModal/PriceModal.jsx";
+import Header from "./Third Project/Header/Header";
+import FoodList from "./Third Project/List/FoodList";
+import Slogan from "./Third Project/Slogan/Slogan";
+import { useState } from "react";
+import PriceModal from "./Third Project/PriceModal/PriceModal.jsx";
 // import ExpenseItem from "./components/Expenses/ExpenseItem";
 // import React from 'react'
 // import CounterApp from "./useReducer Tasks/CounterApp";
@@ -23,11 +29,11 @@ import "./App.css";
 // import UserList from "./Second Practice Project/UserList/UserList";
 // import ErrorModal from "./Second Practice Project/UI/ErrorModal";
 // import CircularAvatar from "./Second Practice Project/UI/CircularAvatar";
-import MainHeader from "./Side_Effect_Reference_Context_API/MainHeader/MainHeader";
-import Login from "./Side_Effect_Reference_Context_API/Login/Login";
-import Home from "./Side_Effect_Reference_Context_API/Home/Home";
-import { useContext } from "react";
-import AuthContext, { AuthContextProvider } from "./store/auth-context";
+// import MainHeader from "./Side_Effect_Reference_Context_API/MainHeader/MainHeader";
+// import Login from "./Side_Effect_Reference_Context_API/Login/Login";
+// import Home from "./Side_Effect_Reference_Context_API/Home/Home";
+// import { useContext } from "react";
+// import AuthContext, { AuthContextProvider } from "./store/auth-context";
 // import DataFetching from "./useEffect Tasks/DataFetching";
 // import MountUnMountComponent from "./useEffect Tasks/MountUnMountComponent";
 // import CounterApp from "./useEffect Tasks/CounterApp";
@@ -190,17 +196,17 @@ function App() {
   //   </div>
   // );
 
-  const ctx = useContext(AuthContext);
+  // const ctx = useContext(AuthContext);
 
-  return (
-    <>
-      <MainHeader />
-      <main>
-        {!ctx.isLoggedIn && <Login />}
-        {ctx.isLoggedIn && <Home />}
-      </main>
-    </>
-  );
+  // return (
+  //   <>
+  //     <MainHeader />
+  //     <main>
+  //       {!ctx.isLoggedIn && <Login />}
+  //       {ctx.isLoggedIn && <Home />}
+  //     </main>
+  //   </>
+  // );
 
   // return(
   //   <>
@@ -218,5 +224,24 @@ function App() {
   //   {/* <ThemeChanger/> */}
   //   </>
   // );
+
+  const [showModel, setShowModel] = useState(false);
+
+  const modelHandler = () => {
+    setShowModel(true);
+    console.log(showModel);
+  };
+
+  return (
+    <>
+    {showModel&&<PriceModal/>}
+    <div className="App">
+    <Header onShowModel={modelHandler} />
+    <Slogan />
+    <FoodList />
+  </div>
+    </>
+  
+  );
 }
 export default App;
