@@ -1,12 +1,12 @@
 // import logo from "./logo.svg";
 import "./App.css";
 // import ExpenseItem from "./components/Expenses/ExpenseItem";
-import { useEffect, useState } from "react";
-import React from 'react'
-import CounterApp from "./useReducer Tasks/CounterApp";
-import ToggleSwitch from "./useReducer Tasks/ToggleSwitch";
-import SignUpForm from "./useReducer Tasks/SignUpForm";
-import TodoApp from "./useReducer Tasks/TodoApp";
+// import React from 'react'
+// import CounterApp from "./useReducer Tasks/CounterApp";
+// import ToggleSwitch from "./useReducer Tasks/ToggleSwitch";
+// import SignUpForm from "./useReducer Tasks/SignUpForm";
+// import TodoApp from "./useReducer Tasks/TodoApp";
+// import ThemeChanger from "./useReducer Tasks/ThemeChanger";
 // import Expenses from "./components/Expenses/Expenses";
 // import CardContainer from "./components/Cards/CardContainer";
 // import NewExpense from "./components/New Expense/NewExpense";
@@ -23,9 +23,11 @@ import TodoApp from "./useReducer Tasks/TodoApp";
 // import UserList from "./Second Practice Project/UserList/UserList";
 // import ErrorModal from "./Second Practice Project/UI/ErrorModal";
 // import CircularAvatar from "./Second Practice Project/UI/CircularAvatar";
-// import MainHeader from './Side_Effect_Reference_Context_API/MainHeader/MainHeader' 
-// import Login from './Side_Effect_Reference_Context_API/Login/Login' 
-// import Home from './Side_Effect_Reference_Context_API/Home/Home'
+import MainHeader from "./Side_Effect_Reference_Context_API/MainHeader/MainHeader";
+import Login from "./Side_Effect_Reference_Context_API/Login/Login";
+import Home from "./Side_Effect_Reference_Context_API/Home/Home";
+import { useContext } from "react";
+import AuthContext, { AuthContextProvider } from "./store/auth-context";
 // import DataFetching from "./useEffect Tasks/DataFetching";
 // import MountUnMountComponent from "./useEffect Tasks/MountUnMountComponent";
 // import CounterApp from "./useEffect Tasks/CounterApp";
@@ -164,7 +166,7 @@ function App() {
 
   // const userSubmissionHandler = (value) => {
   //   const userListObj={
-  //     ...value, 
+  //     ...value,
   //     key:Math.random().toLocaleString()
   //   }
   //   setUserList([...userList,userListObj]);
@@ -188,51 +190,33 @@ function App() {
   //   </div>
   // );
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const ctx = useContext(AuthContext);
 
-  // useEffect(()=>{
-  //   if(localStorage.getItem("isLoggedIn")==='1')
-  //   {
-  //     setIsLoggedIn(true);
-  //   }
-  // },[])
-
-  // const loginHandler = (email, password) => {
-  //   // We should of course check email and password
-  //   // But it's just a dummy/ demo anyways
-  //   setIsLoggedIn(true);
-  //   localStorage.setItem("isLoggedIn","1");
-  // };
-
-  // const logoutHandler = () => {
-  //   localStorage.removeItem('isLoggedIn')
-  //   setIsLoggedIn(false);
-  // };
-
-  // return (
-  //   <React.Fragment>
-  //     <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
-  //     <main>
-  //       {!isLoggedIn && <Login onLogin={loginHandler} />}
-  //       {isLoggedIn && <Home onLogout={logoutHandler} />}
-  //     </main>
-  //   </React.Fragment>
-  // );
-
-  return(
+  return (
     <>
-    {/* <DataFetching/> */}
-    {/* <MountUnMountComponent/> */}
-    {/* <CounterApp/> */}
-    {/* <CleanUpFucntion/> */}
-    {/* <ConditionalEffect/> */}
-    {/* <DependentDataFetching/> */}
-    {/* <WebSocketDemo/> */}                        
-    {/* <CounterApp/> */}
-    {/* <ToggleSwitch/>                                                                  */}
-    {/* <SignUpForm/> */}
-    <TodoApp/>
+      <MainHeader />
+      <main>
+        {!ctx.isLoggedIn && <Login />}
+        {ctx.isLoggedIn && <Home />}
+      </main>
     </>
   );
+
+  // return(
+  //   <>
+  //   {/* <DataFetching/> */}
+  //   {/* <MountUnMountComponent/> */}
+  //   {/* <CounterApp/> */}
+  //   {/* <CleanUpFucntion/> */}
+  //   {/* <ConditionalEffect/> */}
+  //   {/* <DependentDataFetching/> */}
+  //   {/* <WebSocketDemo/> */}
+  //   {/* <CounterApp/> */}
+  //   {/* <ToggleSwitch/>                                                                  */}
+  //   {/* <SignUpForm/> */}
+  //   {/* <TodoApp/> */}
+  //   {/* <ThemeChanger/> */}
+  //   </>
+  // );
 }
 export default App;
