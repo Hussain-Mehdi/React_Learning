@@ -1,57 +1,80 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import ReactDOM from "react-dom";
 import "./PriceModal.css";
 import ListItem from "../List Item/ListItem";
 import OrderItem from "../Order Item/OrderItem";
 import OrderButton from "../UI/Order Button/OrderButton";
 
-
 const dishes = [
   {
     name: "Spaghetti Carbonara",
     ingredients: "Spaghetti, eggs, pancetta, Parmesan cheese, black pepper",
-    price: 12.99
+    price: 12.99,
   },
   {
     name: "Chicken Tikka Masala",
     ingredients: "Chicken, tomato sauce, yogurt, spices, cream",
-    price: 14.99
+    price: 14.99,
   },
   {
     name: "Sushi Roll",
     ingredients: "Rice, seaweed, raw fish, avocado, cucumber",
-    price: 10.99
-  },]
+    price: 10.99,
+  },
+];
 
-const BackDrop = () => {
-  return <div className="backdrop"></div>;
+const BackDrop = (props) => {
+  const hideModal = () => {
+    props.onClose(false);
+  };
+
+  return <div className="backdrop" onClick={hideModal}></div>;
 };
 
-const Overlay = () => {
+const Overlay = (props) => {
+
+  const [calculatedAmount,setCalculatedAmount]=useState()
+
+  const hideModal = () => {
+    props.onClose(false);
+  };
+
+  const amountCalculationHandler=(value)=>{
+      setCalculatedAmount(value);
+  }
+
   return (
     <div className="modal">
-      {
-        dishes.map((e)=>(<OrderItem data={e}/>))
-      }
+      {dishes.map((e) => (
+        <OrderItem data={e} onCalculation={amountCalculationHandler} />
+      ))}
       <div className="price-calculation">
         <h2>Total Amount</h2>
-        <h2>$60.60</h2>
+        <h2>${calculatedAmount}</h2>
       </div>
       <div className="checkout">
-        <OrderButton name="Close" bg="fill"/>
-        <OrderButton name="Order" bg="fill"/>
-
+        <OrderButton name="Close" bg="fill" onClose={hideModal} />
+        <OrderButton name="Order" bg="fill" />
       </div>
-      
     </div>
   );
 };
 
-const PriceModal = () => {
+const PriceModal = (props) => {
+  const showModelHandler = () => {
+    props.onClose(false);
+  };
+
   return (
     <>
-      {ReactDOM.createPortal(<BackDrop />, document.getElementById("backdrop"))}
-      {ReactDOM.createPortal(<Overlay />, document.getElementById("overlay"))}
+      {ReactDOM.createPortal(
+        <BackDrop onClose={showModelHandler} />,
+        document.getElementById("backdrop")
+      )}
+      {ReactDOM.createPortal(
+        <Overlay onClose={showModelHandler} />,
+        document.getElementById("overlay")
+      )}
     </>
   );
 };

@@ -1,6 +1,11 @@
 import React from "react";
 import "./ListItem.css";
+import { useContext } from "react";
+import CartContext from "../store/cart-context";
 export default function ListItem(props) {
+
+  const cartContext = useContext(cartContext)
+
   return (
     <div className="list-item__container">
       <div className="list-item__content">
@@ -11,10 +16,10 @@ export default function ListItem(props) {
       <div className="list-item__operations">
         <div className="item-amount">
           <label htmlFor="">Amount</label>
-          <input value={0} type="number" />
+          <input min='1' max='5' step='1' defaultValue={'1'} type="number" />
         </div>
         <div className="add-button">
-          <button>+Add</button>
+          <button onClick={cartContext.addItem}>+Add</button>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer, useState } from 'react'
 import './FoodList.css'
 import ListItem from '../List Item/ListItem'
 
@@ -56,12 +56,45 @@ const dishes = [
   ];
   
   
+const reducer = (state,action)=>{
+switch (action.type) {
+  case "ADD_TO_CART":
+     return{
+      ...state,
+      cartItemList:[
+        ...state.cartItemList,{
+          cartItemList:action.payload
+        }
+      ]
+     }
+    break;
 
-export default function FoodList() {
+  default:
+    break;
+}
+}
+
+const initialState={
+  cartItemList:[]
+}
+
+export default function FoodList(props) {
+  const [state,dispatch] = useReducer(reducer,initialState);
+  const [newItem,setNewItem] =useState()
+  
+  const addToCartHandler=(value)=>{
+    setNewItem(value);
+    dispatch({
+      type:"ADD_TO_CART", 
+      payload:newItem
+    })
+
+  }
+
   return (
     <div className='food-list__container'>
       {
-        dishes.map((dish)=>(<ListItem data={dish}/>))
+        dishes.map((dish)=>(<ListItem  data={dish}/>))
       }
     </div>
   )

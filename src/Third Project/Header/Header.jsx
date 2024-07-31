@@ -2,12 +2,11 @@ import React from "react";
 import "./Header.css";
 import Cart from "../Cart/Cart";
 import bg from "./background.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header(props) {
-
-  const priceModelHandler = () => {
-props.onShowModel()
+  const priceModelHandler = (value) => {
+    props.onShowModel(value);
   };
 
   return (

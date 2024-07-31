@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
+import CartContext from "../store/cart-context";
+
 export default function Cart(props) {
+  const cartContext=useContext(CartContext)
+
+  const [showModel, setShowModel] = useState(false);
   const showModelHandler = () => {
-    props.showModel()
+    const isShown = !showModel;
+    setShowModel(isShown);
+    props.showModel(isShown);
   };
+
+  const numberOfCartItems=cartContext.items.reduce((currentNo,item)=>{
+    return currentNo+item.amount
+  },0)
+
+  console.log(numberOfCartItems);
 
   return (
     <>
@@ -15,7 +28,7 @@ export default function Cart(props) {
           <p>Your Cart</p>
         </div>
         <div className="cart-item__number">
-          <p>3</p>
+          <p>{numberOfCartItems}</p>
         </div>
       </div>
     </>

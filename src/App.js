@@ -1,11 +1,13 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import "./Third Project/PriceModal/PriceModal.jsx";
+import React from "react";
 import Header from "./Third Project/Header/Header";
 import FoodList from "./Third Project/List/FoodList";
 import Slogan from "./Third Project/Slogan/Slogan";
 import { useState } from "react";
 import PriceModal from "./Third Project/PriceModal/PriceModal.jsx";
+import CartProvider from "./Third Project/store/CartProvider.jsx";
 // import ExpenseItem from "./components/Expenses/ExpenseItem";
 // import React from 'react'
 // import CounterApp from "./useReducer Tasks/CounterApp";
@@ -227,21 +229,19 @@ function App() {
 
   const [showModel, setShowModel] = useState(false);
 
-  const modelHandler = () => {
-    setShowModel(true);
-    console.log(showModel);
+  const modelHandler = (value) => {
+    setShowModel(value);
   };
 
   return (
-    <>
-    {showModel&&<PriceModal/>}
-    <div className="App">
-    <Header onShowModel={modelHandler} />
-    <Slogan />
-    <FoodList />
-  </div>
-    </>
-  
+    <CartProvider>
+      {showModel && <PriceModal onClose={modelHandler} />}
+      <div className="App">
+        <Header onShowModel={modelHandler}  />
+        <Slogan />
+        <FoodList  />
+      </div>
+   </CartProvider>
   );
 }
 export default App;

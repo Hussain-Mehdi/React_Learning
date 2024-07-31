@@ -3,6 +3,7 @@
     display: flex;
     height: 50px; 
     width: 7rem;
+    align-items: center;
     background-color: #7f2606;
     border-radius: 25px;
 }
@@ -15,4 +16,23 @@
     color: white; 
     font-size: 18px;
     font-weight: 700;
+}
+
+.order-button:hover{
+    background-color: #b03c14;
+    cursor: pointer;
+}
+
+.order-button:active{
+    background-color: #7f2606;
+    cursor: pointer;
+}
+
+#bg{
+    padding: 0; 
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 800;
+    color: white;
 }
