@@ -228,18 +228,20 @@ function App() {
   // );
 
   const [showModel, setShowModel] = useState(false);
-
+  const [itemAmount,setItemAmount]=useState()
   const modelHandler = (value) => {
     setShowModel(value);
   };
+
+
 
   return (
     <CartProvider>
       {showModel && <PriceModal onClose={modelHandler} />}
       <div className="App">
-        <Header onShowModel={modelHandler}  />
+        <Header onShowModel={modelHandler}/>
         <Slogan />
-        <FoodList  />
+        <FoodList/>
       </div>
    </CartProvider>
   );

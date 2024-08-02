@@ -16,7 +16,7 @@ export default function Cart(props) {
     return currentNo+item.amount
   },0)
 
-  console.log(numberOfCartItems);
+  console.log("Here is number of cart: "+cartContext.items);
 
   return (
     <>

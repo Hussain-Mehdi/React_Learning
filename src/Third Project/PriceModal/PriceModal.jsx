@@ -4,6 +4,8 @@ import "./PriceModal.css";
 import ListItem from "../List Item/ListItem";
 import OrderItem from "../Order Item/OrderItem";
 import OrderButton from "../UI/Order Button/OrderButton";
+import { useContext } from "react";
+import CartContext from "../store/cart-context";
 
 const dishes = [
   {
@@ -32,6 +34,7 @@ const BackDrop = (props) => {
 };
 
 const Overlay = (props) => {
+  const cartCtx =useContext(CartContext)
 
   const [calculatedAmount,setCalculatedAmount]=useState()
 
@@ -45,7 +48,7 @@ const Overlay = (props) => {
 
   return (
     <div className="modal">
-      {dishes.map((e) => (
+      {cartCtx.items.map((e) => (
         <OrderItem data={e} onCalculation={amountCalculationHandler} />
       ))}
       <div className="price-calculation">
